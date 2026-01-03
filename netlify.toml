@@ -1,0 +1,4 @@
+[build]
+  publish = "."  # The current folder is the site
+  functions = "netlify/functions"
+
