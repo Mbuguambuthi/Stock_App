@@ -57,6 +57,32 @@ const items = [
 
 ];
 
+const brands = [
+    { id: "B001", name: "Emirates Water" },
+    { id: "B002", name: "Hilton" },
+    { id: "B002", name: "Natural" },
+    { id: "B003", name: "Al Jaleeb" },
+    { id: "B004", name: "Ramee Hotels" },
+    { id: "B005", name: "Curio" },
+    { id: "B006", name: "Byblos" },
+    { id: "B007", name: "Dubai Eco-Friendly" },
+    { id: "B008", name: "Eco-Friendly" },
+    { id: "B009", name: "Park Regis Hotel" },
+    { id: "B010", name: "Taj Exotica" },
+    { id: "B011", name: "Taj JLT" },
+    { id: "B012", name: "Flora" },
+    { id: "B013", name: "Metropolitan" },
+    { id: "B014", name: "Moscow" },
+    { id: "B015", name: "Sofitel" },
+    { id: "B016", name: "Restart Fitness" },
+    { id: "B017", name: "Ajmal Perfume" },
+    { id: "B018", name: "XO Club" },
+    { id: "B019", name: "Burj Club" },
+    { id: "B020", name: "Petrochemicals" }
+
+
+];
+
 const routeSelect = document.getElementById("routeSelect");
 routes.forEach(route => {
     const option = document.createElement("option");
@@ -71,7 +97,7 @@ items.forEach(item => {
     col.className = "col-12 col-md-6 col-lg-6";
 
     col.innerHTML = `
-        <div class="card h-100 shadow-sm border-1">
+        <div class="card col h-100 shadow-sm border-1">
             <div class="card-body p-2">
                 <label class="form-label fw-semibold small text-muted">
                     ${item.label}
@@ -88,6 +114,17 @@ items.forEach(item => {
 
     container.appendChild(col);
 });
+
+const brandSelect = document.getElementById("brandSelect");
+brands.forEach(brand => {
+    const brandOptions = document.createElement("option");
+    brandOptions.value = brand.id;
+    brandOptions.textContent = brand.name;
+    brandSelect.appendChild(brandOptions);
+
+});
+
+
 document.getElementById("deliveryForm").addEventListener(
     "submit",
     async (e) => {
@@ -130,6 +167,7 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
+            brand_ID: selectedOption.value,
             items: itemsPayload,
             driver: driver,
             Action: action,
