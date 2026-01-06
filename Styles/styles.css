@@ -17,3 +17,7 @@ html{
     width: 100%;
     max-width: 100px;
 }
+/* Counter.html Styles */
+.counter{
+    background: url(/Images/Background.jpg) center/contain  no-repeat;
+}
