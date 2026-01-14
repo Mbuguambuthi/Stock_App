@@ -124,6 +124,30 @@ brands.forEach(brand => {
 
 });
 
+const actionSelect = document.getElementById("action");
+actionSelect.addEventListener("change",
+    () => {
+
+        if (actionSelect.value === "Accept") {
+            const signature = prompt("Enter Driver Signature");
+            if (!signature) {
+                alert("Please Enter Driver signature");
+                actionSelect.value = "Reject";
+                return;
+
+
+            }
+            actionSelect.dataset.signature = signature;
+
+        }
+        if (actionSelect.value = "Reject") {
+            alert("Delivery marked as rejected");
+        }
+
+    }
+);
+
+
 
 document.getElementById("deliveryForm").addEventListener(
     "submit",
@@ -167,11 +191,14 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
-            brand_ID: selectedOption.value,
+            brand_ID: brandSelect.value,
             items: itemsPayload,
             driver: driver,
             Action: action,
-            Enter_By: enteredBy
+            Enter_By: enteredBy,
+            signature: actionSelect.dataset.signature,
+            status: action === "Accept" ? "Pending Approval" : "Rejected"
+
         };
 
         await fetch(WEBHOOK_URL, {
