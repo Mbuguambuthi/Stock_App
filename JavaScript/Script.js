@@ -1,4 +1,3 @@
-
 const WEBHOOK_URL = "https://default0765532a06c14f0f9f39394689f5f8.fe.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/70a0835f87bb41b4ad65224f0a1aba93/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UqEtB3Hxzp4nmF59zXoQG1GTL6kdHGbMvFi9cPpbbnU";
 
 const routes = [
@@ -51,8 +50,9 @@ const items = [
     { key: "Cooler", label: "Cooler" },
     { key: "Tissue", label: "Tissue" },
     { key: "Stand", label: "Stand" },
-    { key: "Holder", label: "Holder" },
-    { key: "Pump", label: "Pump" },
+    { key: "Holder", label: "Cup Holder" },
+    { key: "Manual Pump", label: "Manual Pump" },
+    { key: "Electric Pump", label: "Electric Pump" },
     { key: "Matungi", label: "Matungi" }
 
 ];
@@ -81,6 +81,15 @@ const brands = [
     { id: "B020", name: "Petrochemicals" }
 
 
+];
+
+const deliveryTrips = [
+    { key: "Trip", label: "1" },
+    { key: "Trip", label: "2" },
+    { key: "Trip", label: "3" },
+    { key: "Trip", label: "4" },
+    { key: "Trip", label: "5" },
+    { key: "Trip", label: "6" }
 ];
 
 const routeSelect = document.getElementById("routeSelect");
@@ -124,6 +133,16 @@ brands.forEach(brand => {
 
 });
 
+const tripSelect = document.getElementById("tripSelect");
+deliveryTrips.forEach(trip => {
+    const tripOptions = document.createElement("option");
+    tripOptions.value = tripSelect.key;
+    tripOptions.textContent = `Trip ${trip.label}`;
+    tripSelect.appendChild(tripOptions);
+
+});
+
+
 const actionSelect = document.getElementById("action");
 actionSelect.addEventListener("change",
     () => {
@@ -140,7 +159,7 @@ actionSelect.addEventListener("change",
             actionSelect.dataset.signature = signature;
 
         }
-        if (actionSelect.value = "Reject") {
+        if (actionSelect.value === "Reject") {
             alert("Delivery marked as rejected");
         }
 

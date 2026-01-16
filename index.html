@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="d-flex flex-column bg-body-primary min-vh-100 min-vw-100">
+<body class="d-flex flex-column bg-body-primary min-vh-100 min-vw-100 ju">
     <header class="fw-bold text-center m-1 p-2">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
@@ -57,6 +57,12 @@
                                 <option value="">--Select Route--</option>
                             </select>
                         </div>
+
+                        <div class="col">
+                            <select name="Trips" title="Trips" class="form-select" id="tripSelect" required>
+                                <option value="">--Select Trip--</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="row mb-3">
@@ -67,8 +73,19 @@
                         </div>
                     </div>
 
+                    <div class="row g-2 mb-3" id="loadOut">
+                        <div class="col">
+                            <label for="loadOut" class="form-label fw-bold">
+                                loadOut/DN No:
+                            </label>
+                            <input type="number" class="form-control text-center" id="loadOut" min="0" value="0">
+
+                        </div>
+                    </div>
+
                     <div class="row g-2 mb-3" id="itemContainer">
                         <div class="col">
+                            <p class="fw-bold">Loaded Items:</p>
 
                         </div>
                     </div>
