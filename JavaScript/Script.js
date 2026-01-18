@@ -48,13 +48,27 @@ const items = [
     { key: "0.5L Cp", label: "0.5L Cp" },
     { key: "330ml Cp", label: "330ml Cp" },
     { key: "250ml Cp", label: "250ml Cp" },
-    { key: "Cooler", label: "Cooler" },
+    { key: "5 Gallon Bottles", label: "5 Gallon Bottles" },
+    { key: "5 Gallon Empty Bottles", label: "5 Gallon Empty Bottles" },
+    { key: "5 Gallon Damaged Bottles", label: "5 Gallon Damaged Bottles" },
+    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser" },
     { key: "Tissue", label: "Tissue" },
     { key: "Stand", label: "Stand" },
-    { key: "Holder", label: "Holder" },
-    { key: "Pump", label: "Pump" },
+    { key: "Holder", label: "Cup Holder" },
+    { key: "Electric Pump", label: "Electric Pump" },
+    { key: "Manual Pump", label: "Manual Pump" },
     { key: "Matungi", label: "Matungi" }
 
+];
+
+
+const deliveryTrips = [
+    { key: "Trip", label: "1" },
+    { key: "Trip", label: "2" },
+    { key: "Trip", label: "3" },
+    { key: "Trip", label: "4" },
+    { key: "Trip", label: "5" },
+    { key: "Trip", label: "6" }
 ];
 
 const routeSelect = document.getElementById("routeSelect");
@@ -64,6 +78,7 @@ routes.forEach(route => {
     option.textContent = route.name;
     routeSelect.appendChild(option)
 });
+
 
 const container = document.getElementById("itemContainer");
 items.forEach(item => {
@@ -88,6 +103,15 @@ items.forEach(item => {
 
     container.appendChild(col);
 });
+
+const tripSelect = document.getElementById("tripSelect");
+deliveryTrips.forEach(trip =>{
+    const tripOptions = document.createElement("option");
+    tripOptions.value = tripSelect.key;
+    tripOptions.textContent = `Trip ${trip.label}`;
+    tripSelect.appendChild(tripOptions);
+ );
+
 document.getElementById("deliveryForm").addEventListener(
     "submit",
     async (e) => {
@@ -130,6 +154,7 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
+            trip: tripSelect.Value,
             items: itemsPayload,
             driver: driver,
             Action: action,
