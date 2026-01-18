@@ -23,11 +23,18 @@
                 <img src="Images/Emirates_logo.jpeg" alt="Emirates_logo" class="navbrand flex-row logo">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item mx-2 ">
-                        <a class="nav-link active text-black" aria-current="page" href="index.html">Delivery</a>
+                        <a class="nav-link active text-black" aria-current="page" href="index.html">Load Out </a>
+                    </li>
+                    <!--  <li class="nav-item mx-2 ">
+                        <a class="nav-link text-black" href="">Return Stock</a>
+                    </li> -->
+                    <li class="nav-item mx-2 ">
+                        <a class="nav-link text-black" href="">Goods Received</a>
                     </li>
                     <li class="nav-item mx-2 ">
-                        <a class="nav-link text-black" href="/Calc.html">Calculator</a>
+                        <a class="nav-link text-black" href="/Calc.html">Physical Stock</a>
                     </li>
+
                     <li class="nav-item mx-2 ">
                         <a class="nav-link text-black" href="/Counter.html">Counter</a>
                     </li>
@@ -39,7 +46,7 @@
         <div class="card  shadow-lg mx-2">
             <div class="card-header">
                 <p class="fw-bold fs-3 text-center">
-                    Delivery Entry
+                    Load Out
                 </p>
             </div>
             <div class="card-body">
@@ -47,28 +54,31 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Driver Name" class="form-label">Driver Name:</label>
+                            <label for="Driver Name" class="form-label fw-semibold">Driver Name:</label>
                             <input type="text" class="form-control" id="driverName" placeholder="Driver Name">
+                        </div>
+                        <div class="col">
+                            <label for="Subsidiary" class="form-label fw-semibold">Subsidiary:</label>
+
+                            <select name="subsidiary" title="subsidiary" class="form-select" id="subSelect" required>
+                                <option value="EWF">EWF</option>
+                                <option value="ENDW">ENDW</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
+                            <label for="Route" class="form-label fw-semibold">Route:</label>
                             <select name="Routes" title="Routes" class="form-select" id="routeSelect" required>
                                 <option value="">--Select Route--</option>
                             </select>
                         </div>
 
                         <div class="col">
+                            <label for="Trip" class="form-label fw-semibold">Trip:</label>
+
                             <select name="Trips" title="Trips" class="form-select" id="tripSelect" required>
                                 <option value="">--Select Trip--</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col">
-                            <select name="Brands" title="Brand" class="form-select" id="brandSelect" required>
-                                <option value="">---Choose a Brand---</option>
                             </select>
                         </div>
                     </div>
@@ -76,23 +86,34 @@
                     <div class="row g-2 mb-3" id="loadOut">
                         <div class="col">
                             <label for="loadOut" class="form-label fw-bold">
-                                loadOut/DN No:
+                                load Ref #/DN No:
                             </label>
                             <input type="number" class="form-control text-center" id="loadOut" min="0" value="0">
 
                         </div>
                     </div>
 
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="Route" class="form-label fw-semibold">Brand Logo:</label>
+
+                            <select name="Brands" title="Brand" class="form-select" id="brandSelect" required>
+                                <option value="">---Choose a Brand---</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="row g-2 mb-3" id="itemContainer">
                         <div class="col">
-                            <p class="fw-bold">Loaded Items:</p>
+                            <p class="fw-bold">Items:</p>
 
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Action" class="fotm-label">Action:</label>
+                            <label for="Action" class="fotm-label fw-semibold">Action:</label>
                             <select name="Action" id="action" class="form-select" title="action" required>
                                 <option value="Accept">Accept</option>
                                 <option value="Reject">Reject</option>
@@ -105,8 +126,8 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="user" class="form-label">Entered By:</label>
-                            <input type="text" class="form-control" id="user" placeholder="Store Keeper">
+                            <label for="user" class="form-label fw-semibold">Entered By:</label>
+                            <input type="text" class="form-control" id="user" placeholder="Store Keeper/ Security">
                         </div>
 
                     </div>

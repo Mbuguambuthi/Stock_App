@@ -28,7 +28,6 @@ const routes = [
     { id: "R027", name: "Jabel Ali 2" },
     { id: "R028", name: "Ras AL Khor" },
     { id: "R029", name: "Van 1" },
-    { id: "R029", name: "Van 1" },
     { id: "R030", name: "Aquanim" },
     { id: "R031", name: "Other" }
 ];
@@ -47,12 +46,17 @@ const items = [
     { key: "0.5L Cp", label: "0.5L Cp" },
     { key: "330ml Cp", label: "330ml Cp" },
     { key: "250ml Cp", label: "250ml Cp" },
-    { key: "Cooler", label: "Cooler" },
+    { key: "5 Gallon Bottles", label: "5 Gallon Bottles" },
+    { key: "5 Gallon Empty Bottles", label: "5 Gallon Empty Bottles" },
+    { key: "5 Gallon Damaged Bottles", label: "5 Gallon Damaged Bottles" },
+    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser (NEW)" },
+    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser (OLD)" },
+
     { key: "Tissue", label: "Tissue" },
     { key: "Stand", label: "Stand" },
     { key: "Holder", label: "Cup Holder" },
-    { key: "Manual Pump", label: "Manual Pump" },
     { key: "Electric Pump", label: "Electric Pump" },
+    { key: "Manual Pump", label: "Manual Pump" },
     { key: "Matungi", label: "Matungi" }
 
 ];
@@ -78,7 +82,8 @@ const brands = [
     { id: "B017", name: "Ajmal Perfume" },
     { id: "B018", name: "XO Club" },
     { id: "B019", name: "Burj Club" },
-    { id: "B020", name: "Petrochemicals" }
+    { id: "B020", name: "DWTC Eco-Friendly" },
+    { id: "B021", name: "Petrochemicals" }
 
 
 ];
@@ -136,7 +141,7 @@ brands.forEach(brand => {
 const tripSelect = document.getElementById("tripSelect");
 deliveryTrips.forEach(trip => {
     const tripOptions = document.createElement("option");
-    tripOptions.value = tripSelect.key;
+    tripOptions.value = tripSelect.label;
     tripOptions.textContent = `Trip ${trip.label}`;
     tripSelect.appendChild(tripOptions);
 
@@ -210,6 +215,7 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
+            trip: tripSelect.value,
             brand_ID: brandSelect.value,
             items: itemsPayload,
             driver: driver,
