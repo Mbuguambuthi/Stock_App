@@ -29,7 +29,6 @@ const routes = [
     { id: "R027", name: "Jabel Ali 2" },
     { id: "R028", name: "Ras AL Khor" },
     { id: "R029", name: "Van 1" },
-    { id: "R029", name: "Van 1" },
     { id: "R030", name: "Aquanim" },
     { id: "R031", name: "Other" }
 ];
@@ -107,12 +106,13 @@ items.forEach(item => {
 const tripSelect = document.getElementById("tripSelect");
 deliveryTrips.forEach(trip =>{
     const tripOptions = document.createElement("option");
-    tripOptions.value = tripSelect.key;
+    tripOptions.value = trip.label;
     tripOptions.textContent = `Trip ${trip.label}`;
     tripSelect.appendChild(tripOptions);
- );
+});
 
-document.getElementById("deliveryForm").addEventListener(
+const deliveryForm = document.getElementById("deliveryForm");
+deliveryForm.addEventListener(
     "submit",
     async (e) => {
         e.preventDefault();
@@ -154,21 +154,34 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
-            trip: tripSelect.Value,
+            trip: tripSelect.value,
             items: itemsPayload,
             driver: driver,
             Action: action,
             Enter_By: enteredBy
         };
 
-        await fetch(WEBHOOK_URL, {
+       try{
+            const response = await fetch(WEBHOOK_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
 
-        alert("Submitted");
+
+        if(!response.ok){
+        alert("Submission FAILED!");
+            
+            return;
+        };
+         
+        alert("Successfully Submitted");
         deliveryForm.reset();
+       }catch (error) {
+    console.error(error);
+    alert("Network error. Please try again.");
+}
+        
     }
 );
 
