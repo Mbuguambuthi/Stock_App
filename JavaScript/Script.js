@@ -6,7 +6,7 @@ const routes = [
     { id: "R002", name: "Al Quoz 1" },
     { id: "R003", name: "Al Quoz 2" },
     { id: "R004", name: "Al Quoz 3" },
-    { id: "R005", name: "JAl Quoz 3" },
+    { id: "R005", name: "Al Quoz 4" },
     { id: "R006", name: "Jabel Ali" },
     { id: "R007", name: "DIP 1" },
     { id: "R008", name: "DIP 2" },
