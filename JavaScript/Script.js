@@ -34,31 +34,12 @@ const routes = [
 ];
 
 const items = [
-    { key: "1.5_CTN", label: "1.5L Carton" },
-    { key: "0.5_CTN", label: "0.5L Carton" },
-    { key: "330_CTN", label: "330ml Carton" },
-    { key: "250_CTN", label: "250ml Carton" },
-    { key: "250ml Cup", label: "250ml Cup" },
-    { key: "200(30)_CUP", label: "200ml(30) Cup" },
-    { key: "200(36)_CUP", label: "200ml(36) Cup" },
-    { key: "150_CUP", label: "150ml Cup" },
-    { key: "100_CUP", label: "100ml Cup" },
-    { key: "1.5L Cp", label: "1.5L Cp" },
-    { key: "0.5L Cp", label: "0.5L Cp" },
-    { key: "330ml Cp", label: "330ml Cp" },
-    { key: "250ml Cp", label: "250ml Cp" },
-    { key: "5 Gallon Bottles", label: "5 Gallon Bottles" },
-    { key: "5 Gallon Empty Bottles", label: "5 Gallon Empty Bottles" },
-    { key: "5 Gallon Damaged Bottles", label: "5 Gallon Damaged Bottles" },
-    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser(New)" },
-    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser(Old)" },
-    { key: "Tissue", label: "Tissue" },
-    { key: "Stand", label: "Stand" },
-    { key: "Holder", label: "Cup Holder" },
-    { key: "Electric Pump", label: "Electric Pump" },
-    { key: "Manual Pump", label: "Manual Pump" },
-    { key: "Matungi", label: "Matungi" }
-
+  
+    { key: "5 G Bottles", label: "5 G Bottles" },
+    { key: "5 G Bottles", label: "5 G Full Bottles" },
+    { key: "5 G Empty Bottles", label: "5 G Empty Bottles" },
+    { key: "5 G Damaged Bottles", label: "5 G Damaged Bottles" }
+   
 ];
 
 
