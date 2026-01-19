@@ -12,7 +12,7 @@ const routes = [
     { id: "R008", name: "DIP 2" },
     { id: "R009", name: "Sh. Zayed Road" },
     { id: "R010", name: "Jumeirah" },
-    { id: "R011", name: "A Qusais" },
+    { id: "R011", name: "Al Qusais" },
     { id: "R013", name: "Rashidiya" },
     { id: "R014", name: "JLT" },
     { id: "R015", name: "Mirdiff" },
@@ -28,7 +28,7 @@ const routes = [
     { id: "R026", name: "Abu Dhabi" },
     { id: "R027", name: "Jabel Ali 2" },
     { id: "R028", name: "Ras AL Khor" },
-    { id: "R029", name: "Van 1" },
+    { id: "R029", name: "Van 1/Mobile App" },
     { id: "R030", name: "Aquanim" },
     { id: "R031", name: "Other" }
 ];
