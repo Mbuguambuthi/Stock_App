@@ -157,18 +157,7 @@ deliveryForm.addEventListener(
             
             return;
         };
-           
-        let result = null;
-        try {
-          const text = await response.text();
-          result = text ? JSON.parse(text) : null;
-        } catch {}
-        
-        if (result?.exists) {
-          alert("This route & trip was already submitted.");
-          return;
-        }
-         
+               
         alert("Successfully Submitted");  
         deliveryForm.reset();
        }catch (error) {
