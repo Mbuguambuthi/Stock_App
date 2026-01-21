@@ -5,13 +5,13 @@ const routes = [
     { id: "R002", name: "Al Quoz 1" },
     { id: "R003", name: "Al Quoz 2" },
     { id: "R004", name: "Al Quoz 3" },
-    { id: "R005", name: "JAl Quoz 3" },
+    { id: "R005", name: "Al Quoz 4" },
     { id: "R006", name: "Jabel Ali" },
     { id: "R007", name: "DIP 1" },
     { id: "R008", name: "DIP 2" },
     { id: "R009", name: "Sh. Zayed Road" },
     { id: "R010", name: "Jumeirah" },
-    { id: "R011", name: "A Qusais" },
+    { id: "R011", name: "Al Qusais" },
     { id: "R013", name: "Rashidiya" },
     { id: "R014", name: "JLT" },
     { id: "R015", name: "Mirdiff" },
@@ -27,43 +27,85 @@ const routes = [
     { id: "R026", name: "Abu Dhabi" },
     { id: "R027", name: "Jabel Ali 2" },
     { id: "R028", name: "Ras AL Khor" },
-    { id: "R029", name: "Van 1" },
-    { id: "R030", name: "Aquanim" },
-    { id: "R031", name: "Other" }
+    { id: "R029", name: "Mobile App" },
+    { id: "R030", name: "Distro Aquanim" },
+    { id: "R031", name: "Distro Epic Fresh" },
+    { id: "R032", name: "Cash Distro" },
+    { id: "R033", name: "Credit Route 1" },
+    { id: "R034", name: "Credit Route 2" },
+    { id: "R035", name: "Credit Route 3" },
+    { id: "R036", name: "Credit Route 4" },
+    { id: "R037", name: "Credit Route 5" },
+    { id: "R038", name: "Credit Route 6" },
+    { id: "R039", name: "Credit Route 7" },
+    { id: "R040", name: "Credit Route 8" },
+    { id: "R041", name: "Credit Route 9" },
+    { id: "R042", name: "Credit Route 10" },
+    { id: "R043", name: "ENDW_Al Barsha" },
+    { id: "R044", name: "ENDW_Bur Dubai" },
+    { id: "R045", name: "ENDW_Airport" },
+    { id: "R046", name: "ENDW_Deira 1" },
+    { id: "R047", name: "ENDW_Deira 2" },
+    { id: "R048", name: "ENDW_Sharjah 1" },
+    { id: "R049", name: "ENDW_Sharjah  2" },
+    { id: "R050", name: "ENDW_Ajman" },
+    { id: "R051", name: "Distro MMGT" },
+    { id: "R052", name: "Distro MFGT" },
+    { id: "R053", name: "Distro Topspeed" },
+    { id: "R054", name: "Distro Dhawaq" },
+    { id: "R055", name: "Distro Almayah" },
+    { id: "R056", name: "Distro" }
 ];
 
 const items = [
-    { key: "1.5_CTN", label: "1.5L Carton" },
-    { key: "0.5_CTN", label: "0.5L Carton" },
-    { key: "330_CTN", label: "330ml Carton" },
-    { key: "250_CTN", label: "250ml Carton" },
-    { key: "250ml Cup", label: "250ml Cup" },
-    { key: "200(30)_CUP", label: "200ml(30) Cup" },
-    { key: "200(36)_CUP", label: "200ml(36) Cup" },
-    { key: "150_CUP", label: "150ml Cup" },
-    { key: "100_CUP", label: "100ml Cup" },
-    { key: "1.5L Cp", label: "1.5L Cp" },
-    { key: "0.5L Cp", label: "0.5L Cp" },
-    { key: "330ml Cp", label: "330ml Cp" },
-    { key: "250ml Cp", label: "250ml Cp" },
-    { key: "5 Gallon Bottles", label: "5 Gallon Bottles" },
-    { key: "5 Gallon Empty Bottles", label: "5 Gallon Empty Bottles" },
-    { key: "5 Gallon Damaged Bottles", label: "5 Gallon Damaged Bottles" },
-    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser (NEW)" },
-    { key: "Hot and Cold Dispenser", label: "Hot and Cold Dispenser (OLD)" },
+    { department: "EWF", name: "1.5L Carton" },
+    { department: "EWF", name: "0.5L Carton" },
+    { department: "EWF", name: "330ml Carton" },
+    { department: "EWF", name: "250ml Carton" },
+    { department: "EWF", name: "250ml Cup" },
+    { department: "EWF", name: "200ml(30) Cup" },
+    { department: "EWF", name: "200ml(36) Cup" },
+    { department: "EWF", name: "150ml Cup" },
+    { department: "EWF", name: "100ml Cup" },
+    { department: "EWF", name: "1.5L Cp" },
+    { department: "EWF", name: "0.5L Cp" },
+    { department: "EWF", name: "330ml Cp" },
+    { department: "EWF", name: "250ml Cp" },
+    { department: "EWF", name: "5 Gallon Bottles" },
+    { department: "EWF", name: "5 Gallon Empty Bottles" },
+    { department: "EWF", name: "5 Gallon Damaged Bottles" },
+    { department: "EWF", name: "Hot and Cold Dispenser (NEW)" },
+    { department: "EWF", name: "Hot and Cold Dispenser (OLD)" },
+    { department: "EWF", name: "Tissue" },
+    { department: "EWF", name: "Stand" },
+    { department: "EWF", name: "Cup Holder" },
+    { department: "EWF", name: "Electric Pump" },
+    { department: "EWF", name: "Manual Pump" },
+    { department: "EWF", name: "Matungi" },
+    { department: "ENDW", name: "1.5L Carton" },
+    { department: "ENDW", name: "0.5L Carton" },
+    { department: "ENDW", name: "330ml Carton" },
+    { department: "ENDW", name: "250ml Carton" },
+    { department: "ENDW", name: "250ml Cup" },
+    { department: "ENDW", name: "200ml(30) Cup" },
+    { department: "ENDW", name: "200ml(36) Cup" },
+    { department: "ENDW", name: "150ml Cup" },
+    { department: "ENDW", name: "100ml Cup" },
+    { department: "ENDW", name: "100ml Cup_Tray" },
+    { department: "ENDW", name: "1.5L Cp" },
+    { department: "ENDW", name: "0.5L Cp" },
+    { department: "ENDW", name: "330ml Cp" },
+    { department: "ENDW", name: "250ml Cp" },
+    { department: "ENDW", name: "Tissue" },
+    { department: "ENDW", name: "Cooler" }
 
-    { key: "Tissue", label: "Tissue" },
-    { key: "Stand", label: "Stand" },
-    { key: "Holder", label: "Cup Holder" },
-    { key: "Electric Pump", label: "Electric Pump" },
-    { key: "Manual Pump", label: "Manual Pump" },
-    { key: "Matungi", label: "Matungi" }
+
 
 ];
 
 const brands = [
-    { id: "B001", name: "Emirates Water" },
-    { id: "B002", name: "Hilton" },
+    { id: "B000", name: "Emirates Water" },
+    { id: "B001", name: "Hilton" },
     { id: "B002", name: "Natural" },
     { id: "B003", name: "Al Jaleeb" },
     { id: "B004", name: "Ramee Hotels" },
@@ -97,6 +139,16 @@ const deliveryTrips = [
     { key: "Trip", label: "6" }
 ];
 
+const subsidiary = document.getElementById("subSelect");
+subsidiary.addEventListener("change", e => {
+    const storeEwf = document.getElementById("storeEwf");
+    const PET_B = document.getElementById("storeEndw");
+    const ewfDamageReturn = document.getElementById("security");
+    const endwDamageReturn = document.getElementById("storeDamages");
+    //Remember to finalize this code;
+    // The idea is on clicking and selecting a subsidiary option a specific item display and curated routes are put on display.
+});
+
 const routeSelect = document.getElementById("routeSelect");
 routes.forEach(route => {
     const option = document.createElement("option");
@@ -105,29 +157,31 @@ routes.forEach(route => {
     routeSelect.appendChild(option)
 });
 
+const loadOut = document.getElementById("loadOut");
+
 const container = document.getElementById("itemContainer");
 items.forEach(item => {
     const col = document.createElement("div");
     col.className = "col-12 col-md-6 col-lg-6";
 
     col.innerHTML = `
-        <div class="card col h-100 shadow-sm border-1">
+        <div class="card col h-100 shadow-sm border-1 d-none">
             <div class="card-body p-2">
                 <label class="form-label fw-semibold small text-muted">
-                    ${item.label}
+                    ${item.name}
                 </label>
                 <input 
                     type="number" 
                     min="0" 
                     value="0" 
                     class="form-control text-center" 
-                    data-key="${item.key}">
+                    data-key="${item.department}">
             </div>
         </div>
     `;
 
     container.appendChild(col);
-});
+});//NOTE: REMEMBER YOU RENDERED THE DISPLAY NONE.
 
 const brandSelect = document.getElementById("brandSelect");
 brands.forEach(brand => {
@@ -141,39 +195,24 @@ brands.forEach(brand => {
 const tripSelect = document.getElementById("tripSelect");
 deliveryTrips.forEach(trip => {
     const tripOptions = document.createElement("option");
-    tripOptions.value = tripSelect.label;
+    tripOptions.value = trip.label;
     tripOptions.textContent = `Trip ${trip.label}`;
     tripSelect.appendChild(tripOptions);
 
 });
-
-
-const actionSelect = document.getElementById("action");
-actionSelect.addEventListener("change",
-    () => {
-
-        if (actionSelect.value === "Accept") {
-            const signature = prompt("Enter Driver Signature");
-            if (!signature) {
-                alert("Please Enter Driver signature");
-                actionSelect.value = "Reject";
-                return;
-
-
-            }
-            actionSelect.dataset.signature = signature;
-
-        }
-        if (actionSelect.value === "Reject") {
-            alert("Delivery marked as rejected");
-        }
+tripSelect.addEventListener("change", async (e) => {
+    if (routeSelect === tripSelect) {
 
     }
-);
+
+    // How do I approach this part so that if similar entry is made for a specific route, I want to alert the user that such an entry was done and submitted to Excel.
+
+});
 
 
 
-document.getElementById("deliveryForm").addEventListener(
+const deliveryForm = document.getElementById("deliveryForm");
+deliveryForm.addEventListener(
     "submit",
     async (e) => {
         e.preventDefault();
@@ -215,6 +254,7 @@ document.getElementById("deliveryForm").addEventListener(
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
+            loadOut: loadOut.value,
             trip: tripSelect.value,
             brand_ID: brandSelect.value,
             items: itemsPayload,
