@@ -27,7 +27,7 @@ const routes = [
     { id: "R023", name: "Sharjah 2" },
     { id: "R024", name: "Abu Dhabi" },
     { id: "R025", name: "Jabel Ali 2" },
-    { id: "R026", name: "DTC" }, 
+    { id: "R026", name: "DTC" },
     { id: "R027", name: "Ras AL Khor" },
     { id: "R028", name: "Van 1/Mobile App" },
     { id: "R029", name: "Aquanim" },
@@ -35,12 +35,11 @@ const routes = [
 ];
 
 const items = [
-  
-    { key: "5 G Bottles", label: "5 G Bottles" },
-    { key: "5 G Bottles", label: "5 G Full Bottles" },
+
+    { key: "5 G full Bottles", label: "5 G Full Bottles" },
     { key: "5 G Empty Bottles", label: "5 G Empty Bottles" },
     { key: "5 G Damaged Bottles", label: "5 G Damaged Bottles" }
-   
+
 ];
 
 
@@ -61,33 +60,81 @@ routes.forEach(route => {
     routeSelect.appendChild(option)
 });
 
-
-const container = document.getElementById("itemContainer");
+const itemSelect = document.getElementById("itemSelect");
 items.forEach(item => {
-    const col = document.createElement("div");
-    col.className = "col-12 col-md-6 col-lg-6";
+    const itemOptions = document.createElement("option");
+    itemOptions.value = item.key.trim();
+    itemOptions.textContent = item.label.trim();
+    itemSelect.appendChild(itemOptions);
 
-    col.innerHTML = `
-        <div class="card h-100 shadow-sm border-1">
-            <div class="card-body p-2">
-                <label class="form-label fw-semibold small text-muted">
-                    ${item.label}
-                </label>
-                <input 
-                    type="number" 
-                    min="0" 
-                    value="0" 
-                    class="form-control text-center" 
-                    data-key="${item.key}">
-            </div>
-        </div>
-    `;
-
-    container.appendChild(col);
 });
 
+const qtyInput = document.getElementById("ewfItemsQty");
+const addBtn = document.getElementById("addItemBtn");
+const tableBody = document.getElementById("itemsTableBody");
+
+let selectedItems = [];
+
+addBtn.addEventListener("click", () => {
+
+    const item = itemSelect.value.trim();
+    const qty = Number(qtyInput.value);
+
+    if (!item || qty <= 0) {
+        alert("Please insert item and quantity");
+        return;
+
+    }
+    const existing = selectedItems.find(i => i.item === item);
+    if (existing) {
+        existing.qty += qty;
+    } else {
+        selectedItems.push({ item, qty });
+    }
+
+    renderItems();
+
+    itemSelect.value = "";
+    qtyInput.value = 1;
+});
+
+function renderItems() {
+    tableBody.innerHTML = "";
+
+    selectedItems.forEach((row, index) => {
+        const tr = document.createElement("tr");
+
+        const tdItem = document.createElement("td");
+        tdItem.textContent = row.item;
+
+        const tdQty = document.createElement("td");
+        tdQty.textContent = row.qty;
+        tdQty.classList.add("text-center");
+
+        const tdAction = document.createElement("td");
+        tdAction.classList.add("text-center");
+
+        const btn = document.createElement("button");
+        btn.className = "btn btn-danger btn-sm"
+        btn.type = "button";
+        btn.textContent = "X"
+        btn.addEventListener("click", () => {
+            selectedItems.splice(index, 1);
+            renderItems();
+        });
+
+        tdAction.appendChild(btn);
+
+        tr.append(tdItem, tdQty, tdAction);
+        tableBody.appendChild(tr);
+
+
+    });
+};
+
+
 const tripSelect = document.getElementById("tripSelect");
-deliveryTrips.forEach(trip =>{
+deliveryTrips.forEach(trip => {
     const tripOptions = document.createElement("option");
     tripOptions.value = trip.label;
     tripOptions.textContent = `Trip ${trip.label}`;
@@ -116,55 +163,52 @@ deliveryForm.addEventListener(
             return;
         }
 
-        const inputs = document.querySelectorAll("#itemContainer input[type='number']");
-        const itemsPayload = [];
-
-        inputs.forEach(input => {
-            const Qty = Number(input.value);
-            if (Qty > 0) {
-                itemsPayload.push({
-                    item_key: input.dataset.key,
-                    quantity: Qty
-                });
-            }
-        });
-
-        if (itemsPayload.length === 0) {
+        if (selectedItems.length === 0) {
             alert("Enter at least one item quantity");
             return;
         }
 
+        const itemsPayload = selectedItems.map(i => ({
+            item_key: i.item,
+            quantity: i.qty,
+        }));
+
+
         const payload = {
             timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
-            trip: tripSelect.value,
+            Trip: tripSelect.value,
             items: itemsPayload,
             driver: driver,
             Action: action,
             Enter_By: enteredBy
         };
 
-       try{
+        try {
             const response = await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
 
 
-        if(!response.ok){
-        alert("Submission FAILED!");
-            
-            return;
-        };
-               
-        alert("Successfully Submitted");  
-        deliveryForm.reset();
-       }catch (error) {
-    console.error(error);
-    alert("Network error. Please try again.");
-}
-        
+            if (!response.ok) {
+                alert("Submission FAILED!");
+
+                return;
+            };
+
+            alert("Successfully Submitted");
+
+            selectedItems.length = 0;
+            renderItems();
+
+            deliveryForm.reset();
+        } catch (error) {
+            console.error(error);
+            alert("Network error. Please try again.");
+        }
+
     }
 );
 

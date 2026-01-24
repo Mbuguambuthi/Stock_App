@@ -17,3 +17,13 @@ html{
     width: 100%;
     max-width: 100px;
 }
+.dropdown-item:hover, 
+.dropdown-item:focus {
+
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.dropdown-menu{
+    position: absolute;
+}
