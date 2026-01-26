@@ -67,10 +67,6 @@ trips.forEach(trip => {
     tripSelect.appendChild(tripOptions);
 });
 
-
-let brandHistory = [];// Remember to finish manipulating these two storage arrays
-let driverHistory = [];
-
 const itemSelect = document.getElementById("endwItemSelect");
 //const itemQty = document.getElementById("endwItemsQty");
 items.forEach(item => {
