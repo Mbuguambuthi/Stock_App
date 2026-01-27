@@ -215,6 +215,4 @@ deliveryForm.addEventListener(
 );
 
 
-// REMINDER:
-// Finish the script above
-// Add script upon the trigger of the Action option, a prompt is sent to the fixed route  mobile phone number with the option of accepting or rejecting the delivery. if accepted the filled values are submitted to the OneDrive Excel sheet if not an error is thrown.
+

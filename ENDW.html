@@ -20,7 +20,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100 bg-light">
-    <header class="fw-bold  m-0 p-0">
+    <header class="fw-bold m-0 p-0">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
                 <a href="#" class="navbar-brand">
@@ -30,20 +30,20 @@
 
                 <ul class="navbar-nav flex-row align-items-center">
                     <li class="nav-item dropdown dropstart mx-2 ">
-                        <a class="nav-link dropdown-toggle text-black" aria-current="page" href="#" role="button"
+                        <a class="nav-link acrive dropdown-toggle text-black" aria-current="page" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">EWF</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="ewfFinishedGoods.html" class="dropdown-item ">Finished Goods</a>
+                                <a href="ewfFinishedGoods.min.html" class="dropdown-item">Finished Goods</a>
                             </li>
                             <li>
-                                <a href="index.html" class="dropdown-item">Returned Goods</a>
+                                <a href="index.min.html" class="dropdown-item">Returned Goods</a>
                             </li>
 
                         </ul>
                     </li>
                     <li class="nav-item mx-2 ">
-                        <a class="nav-link active text-black" href="ENDW.html">ENDW</a>
+                        <a class="nav-link text-black" href="ENDW.min.html">ENDW</a>
                     </li>
                 </ul>
             </div>
@@ -61,8 +61,41 @@
                         <div class="col">
                             <label for="Driver" class="form-label fw-semibold"> Driver </label>
                             <Input class="form-control" id="endwDriver" data-bs-toggle="tooltip" data-placement="top"
-                                title="Please Insert Driver Name" placeholder="Name" required></Input>
-                            <ul class="list-group position-absolute" id="driverList"></ul>
+                                title="Please Insert Driver Name" placeholder="Name" list="driver" autocomplete="on"
+                                required></Input>
+                            <datalist id="driver">
+                                <option value="Sajjad Haider"></option>
+                                <option value="Khalid"></option>
+                                <option value="Usama"></option>
+                                <option value="Umair"></option>
+                                <option value="Innayath"></option>
+                                <option value="Ramesh"></option>
+                                <option value="Arif Islam"></option>
+                                <option value="Jamal"></option>
+                                <option value="Amir Muhammad"></option>
+                                <option value="Thorab"></option>
+                                <option value="Fath Ullah"></option>
+                                <option value="Harpreet"></option>
+                                <option value="Niraj Kumar"></option>
+                                <option value="Zohaib"></option>
+                                <option value="Riyas"></option>
+                                <option value="Kamran"></option>
+                                <option value="Baber ALi"></option>
+                                <option value="Tofazzal Khan"></option>
+                                <option value="Shahin"></option>
+                                <option value="Shafaiz"></option>
+                                <option value="Umar"></option>
+                                <option value="Dhawaq"></option>
+                                <option value="Top Speed"></option>
+                                <option value="Al Mayah"></option>
+                                <option value="MMGT"></option>
+                                <option value="MFGT"></option>
+
+
+
+                            </datalist>
+                            <!-- <ul class="list-group position-absolute" id="driverList"></ul>
+ -->
                         </div>
                     </div>
 
@@ -98,11 +131,40 @@
                             <label for="endwBrands" class="form-label fw-semibold"> Brands</label>
                             <input type="text" class="form-control" id="brand" placeholder="Emirates / Hilton"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="Write the logo name of the item issued" required>
+                                title="Write the logo name of the item issued" list="brands" autocomplete="on" required>
+                            <datalist id="brands">
+                                <option value="Emirates Water"></option>
+                                <option value="Hilton"></option>
+                                <option value="Curio"></option>
+                                <option value="Eco-friendly"></option>
+                                <option value="Dubai Eco-friendly"></option>
+                                <option value="DWTC Eco-friendly"></option>
+                                <option value="Natural/Airport"></option>
+                                <option value="Al Jaleeb"></option>
+                                <option value="Ramee"></option>
+                                <option value="Byblos"></option>
+                                <option value="Park Regis"></option>
+                                <option value="Autograph"></option>
+                                <option value="H. Polo"></option>
+                                <option value="H. Palace"></option>
+                                <option value="Taj JLT"></option>
+                                <option value="Taj Exotica"></option>
+                                <option value="Melia"></option>
+                                <option value="Mercure"></option>
+                                <option value="Metropolitan"></option>
+                                <option value="Moscow"></option>
+                                <option value="Flora"></option>
+                                <option value="Ajmal Perfume"></option>
+                                <option value="Petrochemicals"></option>
+                                <option value="XO Club"></option>
+                                <option value="Burj Club"></option>
+                                <option value="Sofitel"></option>
+                                <option value="Restart Fitness"></option>
+                            </datalist>
                         </div>
 
-                        <ul class="list-group position-absolute" id="brandList"></ul>
-
+                        <!--  <ul class="list-group position-absolute" id="brandList"></ul>
+ -->
 
                     </div>
 

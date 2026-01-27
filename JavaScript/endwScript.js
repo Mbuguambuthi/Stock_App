@@ -18,7 +18,10 @@ const routes = [
     { id: "ER15", department: "ENDW", name: "Credit Route 7" },
     { id: "ER16", department: "ENDW", name: "Credit Route 8" },
     { id: "ER17", department: "ENDW", name: "Credit Route 9" },
-    { id: "ER18", department: "ENDW", name: "Credit Route 10" }
+    { id: "ER18", department: "ENDW", name: "Credit Route 10" },
+    { id: "ER19", department: "ENDW", name: "Lootah Premium Foods" },
+    { id: "ER20", department: "ENDW", name: "ENDW Distro" }
+
 ];
 
 const trips = [
@@ -140,6 +143,29 @@ function renderItems() {
 
     });
 };
+
+const endwForm = document.getElementById("distributionForm");
+endwForm.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const selectedOption = routeSelect.options[routeSelect.selectedIndex];
+
+    if (!selectedOption.value) {
+        alert("Please select a route");
+        return;
+    }
+
+    const driver = document.getElementById("endwDriver").value.trim();
+    const action = document.getElementById("actionSelect").value;
+    const user = document.getElementById("user").value.trim();
+
+    if (!driver || user) {
+        alert("Please enter the values for Driver or User");
+        return;
+    }
+
+
+});
 
 
 
