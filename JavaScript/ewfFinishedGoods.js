@@ -112,7 +112,7 @@ addBtn.addEventListener("click", () => {
     renderItems();
 
     itemSelect.value = "";
-    qtyInput.value = 0;
+    qtyInput.value = "";
 });
 
 function renderItems() {
@@ -209,8 +209,8 @@ deliveryForm.addEventListener(
 
 
         try {
-            const submitBtn = document.querySelectorAll('[type = "submit"]');
-            submitBtn.disabled = true;
+            //const submitBtn = document.querySelectorAll('[type = "submit"]');
+            //submitBtn.disabled = true;
 
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
@@ -220,7 +220,7 @@ deliveryForm.addEventListener(
 
 
             if (!response.ok) {
-                submitBtn.disabled = false;
+                //submitBtn.disabled = false;
                 throw new error("Submission FAILED!");
 
                 return;

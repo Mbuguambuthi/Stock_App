@@ -1,4 +1,3 @@
-const { error } = require("node:console");
 
 const WEBHOOK_URL = "https://default0765532a06c14f0f9f39394689f5f8.fe.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/70a0835f87bb41b4ad65224f0a1aba93/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UqEtB3Hxzp4nmF59zXoQG1GTL6kdHGbMvFi9cPpbbnU";
 
@@ -195,8 +194,8 @@ deliveryForm.addEventListener(
 
 
         try {
-            const submitBtn = document.querySelectorAll('[type = "submit"]');
-            submitBtn.disabled = true;
+            //const submitBtn = document.querySelectorAll('button[type = "submit"]');
+            //submitBtn.disabled = true;
 
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
@@ -206,7 +205,6 @@ deliveryForm.addEventListener(
 
 
             if (!response.ok) {
-                submitBtn.disabled = false;
                 throw new error("Submission FAILED!");
 
                 return;
@@ -222,6 +220,11 @@ deliveryForm.addEventListener(
             console.error(error);
             alert("Network error. Please try again.");
         }
+        //finally{
+
+        //  submitBtn.disabled = false;
+
+        // }
 
     });
 

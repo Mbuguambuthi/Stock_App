@@ -1,5 +1,3 @@
-const { error } = require("console");
-
 const WEBHOOK_URL = "";
 
 const routes = [
@@ -161,7 +159,7 @@ endwForm.addEventListener("submit", async (e) => {
     const loadOut = Number(document.getElementById("loadOut").value);
     const brand = document.getElementById("endwBrands").value.trim();
     const action = document.getElementById("actionSelect").value;
-    const sign = "";//document.getElementById("signature").value.trim()
+    //const sign = "";//document.getElementById("signature").value.trim()
     const user = document.getElementById("user").value.trim();
 
     if (!driver || !user) {
@@ -200,8 +198,8 @@ endwForm.addEventListener("submit", async (e) => {
     console.log(payload);
 
     try {
-        const submitBtn = document.querySelectorAll('[type = "submit"]');
-        submitBtn.disabled = true;
+        //const submitBtn = document.querySelectorAll('button[type = "submit"]');
+        // submitBtn.disabled = true;
 
         const response = await fetch(WEBHOOK_URL, {
             method: "POST",
@@ -211,9 +209,7 @@ endwForm.addEventListener("submit", async (e) => {
 
 
         if (!response.ok) {
-            submitBtn.disabled = false;
             throw new error("Submission FAILED!");
-
             return;
         };
 
@@ -226,7 +222,10 @@ endwForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error(error);
         alert("Network error. Please try again.");
-    }
+    }// finally {
+    // submitBtn.disabled = false;
+
+    // }
 
 });
 
