@@ -193,8 +193,9 @@ deliveryForm.addEventListener(
         console.log(payload);
 
 
+        const submitBtn = document.getElementById("formBtn");
+
         try {
-            const submitBtn = document.querySelectorAll("#formBtn");
             submitBtn.disabled = true;
 
             const response = await fetch(WEBHOOK_URL, {
@@ -205,22 +206,19 @@ deliveryForm.addEventListener(
 
 
             if (!response.ok) {
-                alert("Submission FAILED!");
-                return;
+                throw new Error("Submission failed");
             };
 
-            alert("\u2705 Successfully Submitted");
+            alert("\u2705\u2705 Successfully Submitted");
 
             selectedItems.length = 0;
             renderItems();
 
-            deliveryForm.reset();
+            endwForm.reset();
         } catch (error) {
             console.error(error);
             alert("Network error. Please try again.");
-        }
-        finally {
-
+        } finally {
             submitBtn.disabled = false;
 
         }

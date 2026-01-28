@@ -80,6 +80,7 @@ items.forEach(item => {
 
 });
 
+const brandInput = document.getElementById("endwBrands");
 const qtyInput = document.getElementById("endwItemsQty");
 const addBtn = document.getElementById("addItemBtn");
 const tableBody = document.getElementById("itemsTableBody");
@@ -89,23 +90,27 @@ let selectedItems = [];
 addBtn.addEventListener("click", () => {
 
     const item = itemSelect.value;
+    const brand = brandInput.value.trim();
     const qty = Number(qtyInput.value);
 
-    if (!item || qty <= 0) {
-        alert("Please select an item and place a quantity");
+
+    if (!item || !brand || qty <= 0) {
+        alert("Please select an item, enter a brand and place a quantity");
         return;
 
     }
     const existing = selectedItems.find(i => i.item === item);
     if (existing) {
+        existing.brand = brand;
         existing.qty += qty;
     } else {
-        selectedItems.push({ item, qty });
+        selectedItems.push({ item, brand, qty });
     }
 
     renderItems();
 
     itemSelect.value = "";
+    brandInput.value = "";
     qtyInput.value = 0;
 });
 
@@ -117,6 +122,10 @@ function renderItems() {
 
         const tdItem = document.createElement("td");
         tdItem.textContent = row.item;
+
+        const tdbrand = document.createElement("td");
+        tdbrand.textContent = row.brand;
+        tdbrand.classList.add("text-center")
 
         const tdQty = document.createElement("td");
         tdQty.textContent = row.qty;
@@ -137,7 +146,7 @@ function renderItems() {
 
         tdAction.appendChild(btn);
 
-        tr.append(tdItem, tdQty, tdAction);
+        tr.append(tdItem, tdbrand, tdQty, tdAction);
         tableBody.appendChild(tr);
 
 
@@ -157,7 +166,6 @@ endwForm.addEventListener("submit", async (e) => {
 
     const driver = document.getElementById("endwDriver").value.trim();
     const loadOut = Number(document.getElementById("loadOut").value);
-    const brand = document.getElementById("endwBrands").value.trim();
     const action = document.getElementById("actionSelect").value;
     const sign = "";//document.getElementById("signature").value.trim()
     const user = document.getElementById("user").value.trim();
@@ -180,6 +188,7 @@ endwForm.addEventListener("submit", async (e) => {
 
     const itemsPayload = selectedItems.map(i => ({
         item_key: i.item,
+        brand: i.brand,
         quantity: i.qty,
     }));
 
@@ -189,7 +198,6 @@ endwForm.addEventListener("submit", async (e) => {
         driver: driver,
         Trip: tripSelect.value,
         loadOut: loadOut,
-        brand: brand,
         items: itemsPayload,
         Action: action,
         sign: sign,
@@ -197,8 +205,9 @@ endwForm.addEventListener("submit", async (e) => {
     };
     console.log(payload);
 
+    const submitBtn = document.getElementById("formBtn");
+
     try {
-        const submitBtn = document.querySelectorAll('#formBtn"]');
         submitBtn.disabled = true;
 
         const response = await fetch(WEBHOOK_URL, {
@@ -209,16 +218,15 @@ endwForm.addEventListener("submit", async (e) => {
 
 
         if (!response.ok) {
-            alert("Submission FAILED!");
-            return;
+            throw new Error("Submission failed");
         };
 
-        alert("\u2705 Successfully Submitted");
+        alert("\u2705\u2705 Successfully Submitted");
 
         selectedItems.length = 0;
         renderItems();
 
-        deliveryForm.reset();
+        endwForm.reset();
     } catch (error) {
         console.error(error);
         alert("Network error. Please try again.");

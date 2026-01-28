@@ -125,13 +125,30 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <!--  <div class="row mb-3">
 
                         <div class="col">
+
+                        </div> -->
+
+                    <!--  <ul class="list-group position-absolute" id="brandList"></ul>
+ -->
+
+                    <!-- </div> -->
+
+                    <div class="row mb-3">
+                        <div class="col-5 ">
+                            <label for="items" class="form-label fw-semibold">Items</label>
+                            <select name="endwItemSelect" class="form-select" id="endwItemSelect"
+                                title="endwItemSelect">
+
+                                <option value="">--- ENDW Items ---</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
                             <label for="endwBrands" class="form-label fw-semibold"> Brands</label>
                             <input type="text" class="form-control" id="endwBrands" placeholder="Emirates / Hilton"
-                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="Write the logo name of the item issued" list="brands" autocomplete="on" required>
+                                list="brands" autocomplete="on">
                             <datalist id="brands">
                                 <option value="Emirates Water"></option>
                                 <option value="Hilton"></option>
@@ -162,34 +179,20 @@
                                 <option value="Restart Fitness"></option>
                             </datalist>
                         </div>
-
-                        <!--  <ul class="list-group position-absolute" id="brandList"></ul>
- -->
-
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-5 ">
-                            <label for="items" class="form-label fw-semibold">Items</label>
-                            <select name="endwItemSelect" class="form-select" id="endwItemSelect"
-                                title="endwItemSelect">
-
-                                <option value="">--- ENDW Items ---</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <label for="Qty" class="form-label fw-semibold">Quantity</label>
 
                             <input type="number" class="form-control text-center" id="endwItemsQty" title="endwItemsQty"
                                 value="0" min="0" required>
                         </div>
-                        <div class="col-2 d-flex align-items-end text-center">
+                        <div class="col-1 d-flex align-items-end text-center">
                             <button class="btn btn-success vw-50" id="addItemBtn" type="button">+</button>
                         </div>
                     </div>
                     <table class="table table-sm table-bordered">
                         <thead class="table-light">
                             <th>Item</th>
+                            <th class="text-center">Brand </th>
                             <th class="text-center">Quantity</th>
                             <th class="text-center">Action</th>
                         </thead>
