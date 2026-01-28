@@ -197,7 +197,7 @@ deliveryForm.addEventListener(
 
 
         const payload = {
-            timestamp: new Date().toLocaleString("en-GB", { timeZone: "Asia/Dubai" }),
+            timestamp: new Date().toISOString(),
             route_ID: selectedOption.value,
             Trip: tripSelect.value,
             items: itemsPayload,

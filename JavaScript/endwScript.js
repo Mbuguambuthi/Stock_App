@@ -1,4 +1,4 @@
-const WEBHOOK_URL = "";
+const WEBHOOK_URL = "https://default0765532a06c14f0f9f39394689f5f8.fe.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/0b1d44d86156420dbdf74622448fbba2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=HZdRN9n39GwUE4IU6IPu0aK5nwPtbfQXIQsm237qwXw";
 
 const routes = [
     { id: "ER01", department: "ENDW", name: "Al Barsha" },
@@ -159,7 +159,7 @@ endwForm.addEventListener("submit", async (e) => {
     const loadOut = Number(document.getElementById("loadOut").value);
     const brand = document.getElementById("endwBrands").value.trim();
     const action = document.getElementById("actionSelect").value;
-    //const sign = "";//document.getElementById("signature").value.trim()
+    const sign = "";//document.getElementById("signature").value.trim()
     const user = document.getElementById("user").value.trim();
 
     if (!driver || !user) {
@@ -184,7 +184,7 @@ endwForm.addEventListener("submit", async (e) => {
     }));
 
     const payload = {
-        timestamp: new Date().toLocaleString("en-GB", { timeZone: "Asia/Dubai" }),
+        timestamp: new Date().toISOString(),
         route_ID: selectedOption.value,
         driver: driver,
         Trip: tripSelect.value,
