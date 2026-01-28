@@ -1,3 +1,5 @@
+const { error } = require("console");
+
 const WEBHOOK_URL = "";
 
 const routes = [
@@ -106,7 +108,7 @@ addBtn.addEventListener("click", () => {
     renderItems();
 
     itemSelect.value = "";
-    qtyInput.value = 1;
+    qtyInput.value = 0;
 });
 
 function renderItems() {
@@ -145,7 +147,7 @@ function renderItems() {
 };
 
 const endwForm = document.getElementById("distributionForm");
-endwForm.addEventListener("click", async (e) => {
+endwForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const selectedOption = routeSelect.options[routeSelect.selectedIndex];
@@ -156,16 +158,80 @@ endwForm.addEventListener("click", async (e) => {
     }
 
     const driver = document.getElementById("endwDriver").value.trim();
+    const loadOut = Number(document.getElementById("loadOut").value);
+    const brand = document.getElementById("endwBrands").value.trim();
     const action = document.getElementById("actionSelect").value;
+    const sign = "";//document.getElementById("signature").value.trim()
     const user = document.getElementById("user").value.trim();
 
-    if (!driver || user) {
-        alert("Please enter the values for Driver or User");
+    if (!driver || !user) {
+        alert("Please enter the values for both Driver and User");
         return;
     }
 
+    if (!tripSelect.value) {
+        alert("Please Select a trip");
+        return;
+    }
+
+    if (selectedItems.length === 0) {
+        alert("Please enter atleast one quantity");
+        return;
+
+    }
+
+    const itemsPayload = selectedItems.map(i => ({
+        item_key: i.item,
+        quantity: i.qty,
+    }));
+
+    const payload = {
+        timestamp: new Date().toLocaleString("en-GB", { timeZone: "Asia/Dubai" }),
+        route_ID: selectedOption.value,
+        driver: driver,
+        Trip: tripSelect.value,
+        loadOut: loadOut,
+        brand: brand,
+        items: itemsPayload,
+        Action: action,
+        sign: sign,
+        user: user
+    };
+    console.log(payload);
+
+    try {
+        const submitBtn = document.querySelectorAll('[type = "submit"]');
+        submitBtn.disabled = true;
+
+        const response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+
+
+        if (!response.ok) {
+            submitBtn.disabled = false;
+            throw new error("Submission FAILED!");
+
+            return;
+        };
+
+        alert("\u2705 Successfully Submitted");
+
+        selectedItems.length = 0;
+        renderItems();
+
+        deliveryForm.reset();
+    } catch (error) {
+        console.error(error);
+        alert("Network error. Please try again.");
+    }
 
 });
+
+
+
 
 
 

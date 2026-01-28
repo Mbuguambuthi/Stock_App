@@ -112,7 +112,7 @@ addBtn.addEventListener("click", () => {
     renderItems();
 
     itemSelect.value = "";
-    qtyInput.value = 1;
+    qtyInput.value = 0;
 });
 
 function renderItems() {
@@ -180,6 +180,11 @@ deliveryForm.addEventListener(
             return;
         }
 
+        if (!tripSelect.value) {
+            alert("Please Select a trip");
+            return;
+        }
+
         if (selectedItems.length === 0) {
             alert("Enter at least one item quantity");
             return;
@@ -192,7 +197,7 @@ deliveryForm.addEventListener(
 
 
         const payload = {
-            timestamp: new Date().toISOString(),
+            timestamp: new Date().toLocaleString("en-GB", { timeZone: "Asia/Dubai" }),
             route_ID: selectedOption.value,
             Trip: tripSelect.value,
             items: itemsPayload,
@@ -200,8 +205,13 @@ deliveryForm.addEventListener(
             Action: action,
             Enter_By: enteredBy
         };
+        console.log(payload);
+
 
         try {
+            const submitBtn = document.querySelectorAll('[type = "submit"]');
+            submitBtn.disabled = true;
+
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -210,12 +220,13 @@ deliveryForm.addEventListener(
 
 
             if (!response.ok) {
-                alert("Submission FAILED!");
+                submitBtn.disabled = false;
+                throw new error("Submission FAILED!");
 
                 return;
             };
 
-            alert("Successfully Submitted");
+            alert("\u2705 Successfully Submitted");
 
             selectedItems.length = 0;
             renderItems();
@@ -226,6 +237,5 @@ deliveryForm.addEventListener(
             alert("Network error. Please try again.");
         }
 
-    }
-);
+    });
 
