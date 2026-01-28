@@ -209,8 +209,8 @@ deliveryForm.addEventListener(
 
 
         try {
-            //const submitBtn = document.querySelectorAll('[type = "submit"]');
-            //submitBtn.disabled = true;
+            const submitBtn = document.querySelectorAll("#formBtn");
+            submitBtn.disabled = true;
 
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
@@ -220,9 +220,7 @@ deliveryForm.addEventListener(
 
 
             if (!response.ok) {
-                //submitBtn.disabled = false;
-                throw new error("Submission FAILED!");
-
+                alert("Submission FAILED!");
                 return;
             };
 
@@ -235,6 +233,10 @@ deliveryForm.addEventListener(
         } catch (error) {
             console.error(error);
             alert("Network error. Please try again.");
+        }
+        finally {
+            submitBtn.disabled = false;
+
         }
 
     });

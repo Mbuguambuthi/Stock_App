@@ -198,8 +198,8 @@ endwForm.addEventListener("submit", async (e) => {
     console.log(payload);
 
     try {
-        //const submitBtn = document.querySelectorAll('button[type = "submit"]');
-        // submitBtn.disabled = true;
+        const submitBtn = document.querySelectorAll('#formBtn"]');
+        submitBtn.disabled = true;
 
         const response = await fetch(WEBHOOK_URL, {
             method: "POST",
@@ -209,7 +209,7 @@ endwForm.addEventListener("submit", async (e) => {
 
 
         if (!response.ok) {
-            throw new error("Submission FAILED!");
+            alert("Submission FAILED!");
             return;
         };
 
@@ -222,10 +222,10 @@ endwForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error(error);
         alert("Network error. Please try again.");
-    }// finally {
-    // submitBtn.disabled = false;
+    } finally {
+        submitBtn.disabled = false;
 
-    // }
+    }
 
 });
 
