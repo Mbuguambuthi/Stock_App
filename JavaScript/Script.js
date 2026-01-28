@@ -223,7 +223,7 @@ deliveryForm.addEventListener(
             alert("Network error. Please try again.");
         }
 
-);
+    });
 
 
 
