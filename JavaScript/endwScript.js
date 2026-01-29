@@ -100,9 +100,9 @@ addBtn.addEventListener("click", () => {
 
     }
     const existing = selectedItems.find(i => i.item === item);
-    if (existing) {
-        existing.brand = brand;
-        existing.qty += qty;
+    if (existing === brand) {
+        // existing.brand = brand;
+        existing.qty = qty;
     } else {
         selectedItems.push({ item, brand, qty });
     }
