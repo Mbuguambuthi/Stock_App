@@ -1,26 +1,22 @@
 const WEBHOOK_URL = "https://default0765532a06c14f0f9f39394689f5f8.fe.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/0b1d44d86156420dbdf74622448fbba2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=HZdRN9n39GwUE4IU6IPu0aK5nwPtbfQXIQsm237qwXw";
 
 const routes = [
-    { id: "ER01", department: "ENDW", name: "Al Barsha" },
-    { id: "ER02", department: "ENDW", name: "Bur Dubai" },
-    { id: "ER03", department: "ENDW", name: "Deira 1" },
-    { id: "ER04", department: "ENDW", name: "Deira 2" },
-    { id: "ER05", department: "ENDW", name: "Ajman" },
-    { id: "ER06", department: "ENDW", name: "Sharjah 1" },
-    { id: "ER07", department: "ENDW", name: "Sharjah 2" },
-    { id: "ER08", department: "ENDW", name: "Credit Route Airport" },
-    { id: "ER09", department: "ENDW", name: "Credit Route 1" },
-    { id: "ER10", department: "ENDW", name: "Credit Route 2" },
-    { id: "ER11", department: "ENDW", name: "Credit Route 3" },
-    { id: "ER12", department: "ENDW", name: "Credit Route 4" },
-    { id: "ER13", department: "ENDW", name: "Credit Route 5" },
-    { id: "ER14", department: "ENDW", name: "Credit Route 6" },
-    { id: "ER15", department: "ENDW", name: "Credit Route 7" },
-    { id: "ER16", department: "ENDW", name: "Credit Route 8" },
-    { id: "ER17", department: "ENDW", name: "Credit Route 9" },
-    { id: "ER18", department: "ENDW", name: "Credit Route 10" },
-    { id: "ER19", department: "ENDW", name: "Lootah Premium Foods" },
-    { id: "ER20", department: "ENDW", name: "ENDW Distro" }
+    { id: "ER01", department: "ENDW", name: "Al Barsha/ Quoz" },
+    { id: "ER02", department: "ENDW", name: "Ajman" },
+    { id: "ER03", department: "ENDW", name: "Aweer" },
+    { id: "ER04", department: "ENDW", name: "Bur Dubai" },
+    { id: "ER05", department: "ENDW", name: "Deira 1" },
+    { id: "ER06", department: "ENDW", name: "Deira 2" },
+    { id: "ER07", department: "ENDW", name: "International City" },
+    { id: "ER08", department: "ENDW", name: "Sharjah 1" },
+    { id: "ER09", department: "ENDW", name: "Sharjah 2" },
+    { id: "ER10", department: "ENDW", name: "Credit Route Airport" },
+    { id: "ER11", department: "ENDW", name: "Credit Route Abu Dhabi" },
+    { id: "ER12", department: "ENDW", name: "Credit Route Al Ain" },
+    { id: "ER13", department: "ENDW", name: "Credit Route Dubai" },
+    { id: "ER14", department: "ENDW", name: "Credit Route Sharjah" },
+    { id: "ER15", department: "ENDW", name: "Lootah Premium Foods" },
+    { id: "ER16", department: "ENDW", name: "ENDW Distro" }
 
 ];
 

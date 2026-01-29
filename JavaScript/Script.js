@@ -214,11 +214,12 @@ deliveryForm.addEventListener(
             selectedItems.length = 0;
             renderItems();
 
-            endwForm.reset();
+            deliveryForm.reset();
         } catch (error) {
             console.error(error);
             alert("Network error. Please try again.");
-        } finally {
+        }
+        finally {
             submitBtn.disabled = false;
 
         }
