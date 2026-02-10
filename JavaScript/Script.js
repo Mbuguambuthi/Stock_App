@@ -40,7 +40,10 @@ const items = [
     { key: "5 G Empty Bottles", label: "5 G Empty Bottles" },
     { key: "5 G Damaged Bottles", label: "5 G Damaged Bottles" },
     { key: "Hot & Cold Dispenser(Replace)", label: "Hot & Cold Dispenser(Replace)" },
-    { key: "Hot & Cold Dispenser(New)", label: "Hot & Cold Dispenser(New)" }
+    { key: "Hot & Cold Dispenser(New)", label: "Hot & Cold Dispenser(New)" },
+    { key: "Plastic Pallet", label: "Plastic Pallet" },
+    { key: "Carton or Carry Pack", label: "Carton or Carry Pack" }
+
 
 ];
 
