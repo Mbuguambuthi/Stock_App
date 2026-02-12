@@ -127,6 +127,7 @@ function renderItems() {
         const tdQty = document.createElement("td");
         tdQty.textContent = row.qty;
         tdQty.classList.add("text-center");
+        tdQty.contentEditable = "true";
 
         const tdAction = document.createElement("td");
         tdAction.classList.add("text-center");

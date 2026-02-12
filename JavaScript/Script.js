@@ -115,6 +115,7 @@ function renderItems() {
         const tdQty = document.createElement("td");
         tdQty.textContent = row.qty;
         tdQty.classList.add("text-center");
+        tdQty.contentEditable = "true";// This is how to make an inline entry editable, using the method .contentEditable attached to the parent/cell.
 
         const tdAction = document.createElement("td");
         tdAction.classList.add("text-center");
