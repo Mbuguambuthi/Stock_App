@@ -128,6 +128,19 @@ function renderItems() {
         tdQty.textContent = row.qty;
         tdQty.classList.add("text-center");
         tdQty.contentEditable = "true";
+        tdQty.addEventListener("blur", () => {
+            const newValue = Number(tdQty.textContent.trim());
+            //Validation
+            if (isNaN(newValue) || newValue < 0) {
+                alert("Invalid Quantity");
+                tdQty.textContent = row.qty;
+                return;
+
+            };
+            selectedItems[index].qty = newValue;
+
+        });
+
 
         const tdAction = document.createElement("td");
         tdAction.classList.add("text-center");

@@ -117,6 +117,20 @@ function renderItems() {
         tdQty.classList.add("text-center");
         tdQty.contentEditable = "true";// This is how to make an inline entry editable, using the method .contentEditable attached to the parent/cell.
 
+        //How to attach the edited data to the payload: use event listner "blur" && attach the newValue to the selected items array
+        tdQty.addEventListener("blur", () => {
+            const newValue = Number(tdQty.textContent.trim());
+            //Validation
+            if (isNaN(newValue) || newValue < 0) {
+                alert("Invalid Quantity");
+                tdQty.textContent = row.qty;
+                return;
+
+            };
+            selectedItems[index].qty = newValue;
+
+        });
+
         const tdAction = document.createElement("td");
         tdAction.classList.add("text-center");
 
