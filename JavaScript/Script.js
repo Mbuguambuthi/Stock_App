@@ -42,9 +42,19 @@ const items = [
     { key: "Hot & Cold Dispenser(Replace)", label: "Hot & Cold Dispenser(Replace)" },
     { key: "Hot & Cold Dispenser(New)", label: "Hot & Cold Dispenser(New)" },
     { key: "Plastic Pallet", label: "Plastic Pallet" },
-    { key: "Carton or Carry Pack", label: "Carton or Carry Pack" }
-
-
+    { key: "1500Ml Carton", label: "1500Ml Carton" },
+    { key: "1500Ml Carry Pack", label: "1500Ml Carry Pack" },
+    { key: "500Ml Carton", label: "500Ml Carton" },
+    { key: "500Ml Carry Pack", label: "500Ml Carry Pack" },
+    { key: "330Ml Carton", label: "330Ml Carton" },
+    { key: "330Ml Carry Pack", label: "330Ml Carry Pack" },
+    { key: "250Ml Carton", label: "250Ml Carton" },
+    { key: "250Ml Carry Pack", label: "250Ml Carry Pack" },
+    { key: "250Ml X 40 Cup", label: "250Ml X 40 CUP" },
+    { key: "200Ml x 30 Cup", label: "200Ml X 30 CUP" },
+    { key: "200Ml x 36 Cup", label: "200Ml X 36 CUP" },
+    { key: "150Ml Cup", label: "150Ml CUP" },
+    { key: "100Ml x 54 Cup", label: "100Ml X 54 CUP" }
 ];
 
 
