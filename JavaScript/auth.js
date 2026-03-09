@@ -15,7 +15,7 @@ const provider = new GoogleAuthProvider();
 const status = document.getElementById("status");
 
 
-document.getElementById("signup").onclick = () => {
+document.getElementById("signup").addEventListener("click", () => {
 
     createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
@@ -34,9 +34,9 @@ document.getElementById("signup").onclick = () => {
 
         });
 
-};
+});
 
-document.getElementById("login").onclick = () => {
+document.getElementById("login").addEventListener("click", () => {
 
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
@@ -51,9 +51,9 @@ document.getElementById("login").onclick = () => {
 
         });
 
-};
+});
 
-document.getElementById("googleLogin").onclick = () => {
+document.getElementById("googleLogin").addEventListener("click", () => {
 
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -69,4 +69,4 @@ document.getElementById("googleLogin").onclick = () => {
 
         });
 
-};
+});

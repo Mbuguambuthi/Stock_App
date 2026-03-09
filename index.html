@@ -13,8 +13,10 @@
 
     <link rel="stylesheet" href="Styles/styles.css">
     <script src="JavaScript/Script.js" defer></script>
+    <script type="module" src="JavaScript/protect.js" defer></script>
+    <script type="module" src="JavaScript/logout.js"></script>
+
 </head>
-<script type="module" src="JavaScript/protect.js" defer></script>
 
 
 <body class="d-flex flex-column bg-body-primary min-vh-100 min-vw-100">
@@ -47,6 +49,9 @@
                         <a class="nav-link text-black" href="ENDW.min.html">ENDW</a>
                     </li>
                 </ul>
+                <button id="logout" class="btn btn-sm bg-warning-subtle btn-outline-warning"
+                    type="button">logout</button>
+
             </div>
         </nav>
         <p class="text-center">Warehouse Stock Distribution Tracker</p>
